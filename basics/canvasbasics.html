@@ -10,11 +10,12 @@
 		var c = document.querySelector("#c");
 		var ctx = c.getContext("2d");
 
-                // create a filled rectangle
-                ctx.fillRect(100, 100, 100, 100);
-
-                // create a rectangle outline
-                ctx.strokeRect(50, 50, 50, 50);
+                // we can 'erase' portions of a canvas by
+                // using fillRect and setting fillStyle to the background
+                // color. clearRect is another way to do this without
+                // modifying the fillStyle..we'll see later
+                ctx.fillStyle = "blue";
+                ctx.fillRect(0, 0, 50, 50);
         </script>
 </body>
 </html>
