@@ -9,13 +9,15 @@
 	<script>
 		var c = document.querySelector("#c");
 		var ctx = c.getContext("2d");
-
-                // we can 'erase' portions of a canvas by
-                // using fillRect and setting fillStyle to the background
-                // color. clearRect is another way to do this without
-                // modifying the fillStyle..we'll see later
-                ctx.fillStyle = "blue";
-                ctx.fillRect(0, 0, 50, 50);
+                
+                // draw a triangle using other drawing commands
+                ctx.beginPath();
+                ctx.moveTo(10, 10);
+                ctx.lineTo(50, 50);
+                ctx.lineTo(50, 10);
+                ctx.lineTo(10, 10);
+                ctx.fill(); // create a filled shape
+                // ctx.stroke(); // create an outlined shape
         </script>
 </body>
 </html>
