@@ -14,10 +14,13 @@
                 ctx.strokeRect(50, 50, 100, 100);
 
                 // create the filled triangle
+                ctx.beginPath();
                 ctx.moveTo(75, 75);
                 ctx.lineTo(125, 75);
                 ctx.lineTo(125, 125);
-                ctx.lineTo(75, 75);
+                // actually don't need to add the last line as fill will
+                // automatically close the shape!
+                //ctx.lineTo(75, 75);
                 ctx.fill(); 
         </script>
 </body>
