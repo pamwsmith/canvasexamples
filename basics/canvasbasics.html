@@ -10,7 +10,6 @@
 		var c = document.querySelector("#c");
 		var ctx = c.getContext("2d");
          
-                // set colors
                 ctx.strokeStyle = "#33CC33"; // can use rgb hex codes
                 ctx.strokeRect(50, 50, 100, 100);
                 ctx.beginPath();
@@ -21,8 +20,14 @@
                 ctx.fillStyle = "blue"; // can use 140 color names
                 ctx.fill();
 
-                // NOTE: you must set the color before calling draw methods
-                // like strokeRect() or fill()!
+                // add text - x, y are the bottom left corner of the text
+                // note that this uses the stroke color set earlier
+                ctx.strokeText("HELLO UDACITY!", 50, 10);
+
+                // can also use fill color set earlier
+                ctx.fillText("HI UDACITY!", 50, 30);
+
+                // can also set font size, style, and line width 
         </script>
 </body>
 </html>
