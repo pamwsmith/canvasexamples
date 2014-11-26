@@ -12,6 +12,12 @@
 		var image = new Image();
 		image.onload = function() {
 			ctx.drawImage(image, 0, 0, c.width, c.height);
+
+			// save image
+			// note: may get a Tainted canvases may not be exported
+			// need to be running a server to host the image
+			var savedImage = c.toDataURL();
+			window.open(savedImage);
 		}
 
 		image.src = "fry_fixed.jpg";
