@@ -5,22 +5,16 @@
 <head>
 </head>
 <body>
-	<canvas id="c" width="200" height="200"></canvas>
+	<canvas id="c" width="500" height="500"></canvas>
 	<script>
 		var c = document.querySelector("#c");
 		var ctx = c.getContext("2d");
-		var image = new Image();
-		image.onload = function() {
-			ctx.drawImage(image, 0, 0, c.width, c.height);
 
-			// save image
-			// note: may get a Tainted canvases may not be exported
-			// need to be running a server to host the image
-			var savedImage = c.toDataURL();
-			window.open(savedImage);
-		}
+                // create a filled rectangle
+                ctx.fillRect(100, 100, 100, 100);
 
-		image.src = "fry_fixed.jpg";
-	</script>
+                // create a rectangle outline
+                ctx.strokeRect(50, 50, 50, 50);
+        </script>
 </body>
 </html>
