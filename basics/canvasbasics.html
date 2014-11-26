@@ -9,20 +9,32 @@
 	<script>
 		var c = document.querySelector("#c");
 		var ctx = c.getContext("2d");
-                
-                // create the outlined square
-                ctx.strokeRect(50, 50, 100, 100);
+       
+                // scaling
+                // scale(x, y) - multiples x and y values by a given factor
 
-                // create the filled triangle
-                //forgot to call this, but didn't make a difference?
-                ctx.beginPath();
-                ctx.moveTo(75, 75);
-                ctx.lineTo(125, 75);
-                ctx.lineTo(125, 125);
-                // actually don't need to add the last line as fill will
-                // automatically close the shape!
-                //ctx.lineTo(75, 75);
-                ctx.fill(); 
+                // translation
+                // translate(x, y) - moves subsequent draw commands by x
+                //      pixels horizontally and y pixels vertically
+
+                // rotation
+                // rotate(angleRadians) - rotates an object a certain number
+                //      of radians about its center
+                //      radians = degrees * (Math.PI/180)
+                
+                // generally scale objects first, then rotate, then finally
+                // translate last
+
+                ctx.save();
+                ctx.fillStyle = 'blue';
+                ctx.translate(10, 10);
+                ctx.fillRect(0, 0, 10, 10);
+                ctx.restore();
+
+                ctx.rotate(Math.PI/4);
+                ctx.translate(50,0);
+                ctx.fillStyle = 'green';
+                ctx.fillRect(0, 0, 10, 10);
         </script>
 </body>
 </html>
