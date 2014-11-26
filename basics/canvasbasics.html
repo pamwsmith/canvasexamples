@@ -10,24 +10,16 @@
 		var c = document.querySelector("#c");
 		var ctx = c.getContext("2d");
          
-                ctx.strokeStyle = "#33CC33"; // can use rgb hex codes
-                ctx.strokeRect(50, 50, 100, 100);
-                ctx.beginPath();
-                ctx.moveTo(75, 75);
-                ctx.lineTo(125, 125);
-                ctx.lineTo(125, 75);
+                // recreate meme text
+                ctx.font = "36pt Impact";
+                ctx.textAlign = "center";
 
-                ctx.fillStyle = "blue"; // can use 140 color names
-                ctx.fill();
+                ctx.fillStyle = "white";
+                ctx.fillText("CANVAS MEMES!", c.width / 2, 40);
 
-                // add text - x, y are the bottom left corner of the text
-                // note that this uses the stroke color set earlier
-                ctx.strokeText("HELLO UDACITY!", 50, 10);
-
-                // can also use fill color set earlier
-                ctx.fillText("HI UDACITY!", 50, 30);
-
-                // can also set font size, style, and line width 
+                ctx.strokeStyle = "black";
+                ctx.lineWidth = 3;
+                ctx.strokeText("CANVAS MEMES!", c.width / 2, 40);
         </script>
 </body>
 </html>
