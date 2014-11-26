@@ -10,14 +10,15 @@
 		var c = document.querySelector("#c");
 		var ctx = c.getContext("2d");
                 
-                // draw a triangle using other drawing commands
-                ctx.beginPath();
-                ctx.moveTo(10, 10);
-                ctx.lineTo(50, 50);
-                ctx.lineTo(50, 10);
-                ctx.lineTo(10, 10);
-                ctx.fill(); // create a filled shape
-                // ctx.stroke(); // create an outlined shape
+                // create the outlined square
+                ctx.strokeRect(50, 50, 100, 100);
+
+                // create the filled triangle
+                ctx.moveTo(75, 75);
+                ctx.lineTo(125, 75);
+                ctx.lineTo(125, 125);
+                ctx.lineTo(75, 75);
+                ctx.fill(); 
         </script>
 </body>
 </html>
