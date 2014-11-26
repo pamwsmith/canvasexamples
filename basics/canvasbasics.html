@@ -9,32 +9,34 @@
 	<script>
 		var c = document.querySelector("#c");
 		var ctx = c.getContext("2d");
-       
-                // scaling
-                // scale(x, y) - multiples x and y values by a given factor
-
-                // translation
-                // translate(x, y) - moves subsequent draw commands by x
-                //      pixels horizontally and y pixels vertically
-
-                // rotation
-                // rotate(angleRadians) - rotates an object a certain number
-                //      of radians about its center
-                //      radians = degrees * (Math.PI/180)
                 
-                // generally scale objects first, then rotate, then finally
-                // translate last
+                // use save() and restore() to maintain a stack of drawing
+                // states - LIFO (last in, first out)
 
+                // we could manually switch the fill style each time
+                /*
+                ctx.fillStyle = "blue";
+                ctx.fillRect(0,0,50,50);
+
+                ctx.fillStyle = "green"
+                ctx.fillRect(100,100,10,10);
+
+                ctx.fillStyle = "blue";
+                ctx.fillRect(200,10,20,20);
+                */
+
+                // This is better.
+                ctx.fillStyle = "blue";
+                ctx.fillRect(0,0,50,50);
+
+                // Save state with blue fill
                 ctx.save();
-                ctx.fillStyle = 'blue';
-                ctx.translate(10, 10);
-                ctx.fillRect(0, 0, 10, 10);
+                ctx.fillStyle = "green";
+                ctx.fillRect(100,100,10,10);
+                
+                // Restore to blue fill
                 ctx.restore();
-
-                ctx.rotate(Math.PI/4);
-                ctx.translate(50,0);
-                ctx.fillStyle = 'green';
-                ctx.fillRect(0, 0, 10, 10);
+                ctx.fillRect(200,10,20,20);
         </script>
 </body>
 </html>
