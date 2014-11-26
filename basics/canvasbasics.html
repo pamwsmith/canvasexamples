@@ -9,34 +9,20 @@
 	<script>
 		var c = document.querySelector("#c");
 		var ctx = c.getContext("2d");
-                
-                // use save() and restore() to maintain a stack of drawing
-                // states - LIFO (last in, first out)
+         
+                // set colors
+                ctx.strokeStyle = "#33CC33"; // can use rgb hex codes
+                ctx.strokeRect(50, 50, 100, 100);
+                ctx.beginPath();
+                ctx.moveTo(75, 75);
+                ctx.lineTo(125, 125);
+                ctx.lineTo(125, 75);
 
-                // we could manually switch the fill style each time
-                /*
-                ctx.fillStyle = "blue";
-                ctx.fillRect(0,0,50,50);
+                ctx.fillStyle = "blue"; // can use 140 color names
+                ctx.fill();
 
-                ctx.fillStyle = "green"
-                ctx.fillRect(100,100,10,10);
-
-                ctx.fillStyle = "blue";
-                ctx.fillRect(200,10,20,20);
-                */
-
-                // This is better.
-                ctx.fillStyle = "blue";
-                ctx.fillRect(0,0,50,50);
-
-                // Save state with blue fill
-                ctx.save();
-                ctx.fillStyle = "green";
-                ctx.fillRect(100,100,10,10);
-                
-                // Restore to blue fill
-                ctx.restore();
-                ctx.fillRect(200,10,20,20);
+                // NOTE: you must set the color before calling draw methods
+                // like strokeRect() or fill()!
         </script>
 </body>
 </html>
