@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+ <meta charset="UTF-8"> 
+
+<html>
+<head>
+</head>
+<body>
+	<canvas id="c" width="500" height="500"></canvas>
+	<script>
+
+            function grayscale(imageData){
+               var data = imageData.data;
+
+                for (var i=0; i<data.length; i+=4){
+                    // a common formula in image processors is:
+                    // gray = red * 0.3 + green * 0.59 + blue * 0.11
+                    // see also www.tannerhelland.com/3643/grayscale-image-algorithm-vb6
+                    var brightness = 0.3 * data[i] + 0.59 * data[i + 1] 
+                        + 0.11 * data[i + 2]; 
+                    // red
+                    data[i] = brightness;
+                    // green
+                    data[i+1] = brightness;
+                    // blue
+                    data[i+2] = brightness;
+                }
+                return imageData;
+            };
+
+	    var c = document.querySelector("#c");
+	    var ctx = c.getContext("2d");
+
+            var image = new Image();
+            image.src = "fry_fixed.jpg";
+            image.onload = function(){
+                ctx.drawImage(image, 0, 0, 500, 500);
+
+                var imageData = ctx.getImageData(0, 0, 500, 500);
+                var grayImageData = grayscale(imageData);
+                ctx.putImageData(grayImageData, 0, 0);
+            };
+         
+       </script>
+</body>
+</html>
