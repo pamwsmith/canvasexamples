@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+ <meta charset="UTF-8"> 
+
+<html>
+<head>
+</head>
+<body>
+	<canvas id="c" width="500" height="500"></canvas>
+	<script>
+	    var c = document.querySelector("#c");
+	    var ctx = c.getContext("2d");
+         
+            // get image data for whole canvas
+            var imageData = ctx.getImageData(0, 0, 500, 500);
+
+            // image data is a CanvasPixelArray which
+            // contains height x width x 4 bytes of data, with index
+            // values ranging from 0 to (height x width x 4) - 1.
+            // Each pixel is represented by 4 one-byte values (red,
+            // green, blue, and alpha)
+            var numPixels = imageData.data.length / 4;
+            for (var i=0; i<numPixels; i++){
+                // check for every 10th pixel...
+                if (i % 10 === 0){
+                    // by default all bytes are black (0) initially
+                    // set green byte
+                    imageData.data[i * 4 + 1] = 255;
+                    // alpha byte must be non-zero also
+                    imageData.data[i * 4 + 3] = 255;
+                }
+            }
+            ctx.putImageData(imageData, 0, 0);
+        </script>
+</body>
+</html>
